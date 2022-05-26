@@ -72,8 +72,6 @@ declare abstract class ManagerGeneric {
 }
 
 export class Manager {
-  #generic: ManagerGeneric;
-  #component: string;
   name: string;
 
   constructor(component: string, generic: ManagerGeneric);
