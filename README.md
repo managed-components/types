@@ -1,1 +1,1 @@
-# webcm-types
+# managed components types
