@@ -1,13 +1,12 @@
-import { Request } from "express";
 import { ComponentSettings, Manager } from "../index";
 
 export default async function (manager: Manager, settings: ComponentSettings) {
-  // FYI - You can use fetch to get some remote preferences here based on `settings`
-
-  //   const myRoute = manager.route("/resetCache", (request: Request) => {
-  //     manager.invalidateCache(request.params.key);
-  //     return new Response(`You made a ${request.method} request`);
-  //   });
+  const myRoute = manager.route("/resetCache", (request: Request) => {
+    manager.invalidateCache("weather-Iceland");
+    manager.invalidateCache("weather-Tobago");
+    manager.invalidateCache("weather-Kyoto");
+    return new Response(`You made a ${request.method} request`);
+  });
   console.log("demoComponent exposes an endpoint at", myRoute);
 
   const myProxiedRoute = manager.proxy("/gate/*", "http://n-gate.com");
