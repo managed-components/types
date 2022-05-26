@@ -2,9 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "es2022",
-    "lib": ["es2022"],
-    "typeRoots": ["./node_modules/@types"],
-    "isolatedModules": true,
+    "lib": ["es2022", "DOM"],
     "noEmit": true,
     "module": "ESNext",
     "esModuleInterop": true
