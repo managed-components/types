@@ -3,11 +3,9 @@ interface ComponentSettings {
 }
 
 interface ClientSetOptions {
-  scope?: "page" | "session" | "infinite";
-  expiry?: Date | number | null;
+  readonly scope?: "page" | "session" | "infinite";
+  readonly expiry?: Date | number | null;
 }
-
-type ComponentConfig = [string, ComponentSettings];
 
 type EmbedCallback = (context: {
   parameters: { [k: string]: unknown };
@@ -16,10 +14,10 @@ type EmbedCallback = (context: {
 type WidgetCallback = () => Promise<string>;
 
 declare abstract class MCEvent extends Event {
-  name?: string;
-  payload: any;
+  readonly name?: string;
+  readonly payload: any;
   client: Client;
-  type: string;
+  readonly type: string;
 }
 
 export interface MCEventListener {
@@ -27,7 +25,7 @@ export interface MCEventListener {
 }
 
 export class Manager {
-  name: string;
+  readonly name: string;
 
   addEventListener(type: string, callback: MCEventListener): void;
   createEventListener(type: string, callback: MCEventListener): void;
@@ -43,14 +41,14 @@ export class Manager {
 }
 
 declare abstract class Client {
-  emitter: string;
-  userAgent: string;
-  language: string;
-  referer: string;
-  ip: string;
-  title?: string;
-  timestamp?: number;
-  url: URL;
+  readonly emitter: string;
+  readonly userAgent: string;
+  readonly language: string;
+  readonly referer: string;
+  readonly ip: string;
+  readonly title?: string;
+  readonly timestamp?: number;
+  readonly url: URL;
 
   fetch(resource: string, settings?: RequestInit): void;
   execute(code: string): void;
