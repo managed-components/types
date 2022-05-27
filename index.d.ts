@@ -1,8 +1,8 @@
-interface ComponentSettings {
+export interface ComponentSettings {
   [key: string]: any;
 }
 
-interface ClientSetOptions {
+export interface ClientSetOptions {
   readonly scope?: "page" | "session" | "infinite";
   readonly expiry?: Date | number | null;
 }
@@ -13,7 +13,7 @@ type EmbedCallback = (context: {
 
 type WidgetCallback = () => Promise<string>;
 
-declare abstract class MCEvent extends Event {
+export interface MCEvent extends Event {
   readonly name?: string;
   readonly payload: any;
   client: Client;
@@ -24,14 +24,14 @@ export interface MCEventListener {
   (event: MCEvent): void;
 }
 
-export class Manager {
+export interface Manager {
   readonly name: string;
 
   addEventListener(type: string, callback: MCEventListener): void;
   createEventListener(type: string, callback: MCEventListener): void;
   get(key: string): string;
   set(key: string, value: any): void;
-  route(path: string, callback: (request: Request) => Response): string;
+  route(path: string, callback: (request: Request | any) => Response): string;
   proxy(path: string, target: string): string;
   serve(path: string, target: string): string;
   useCache(key: string, callback: Function, expiry?: number): any;
@@ -40,7 +40,7 @@ export class Manager {
   registerWidget(callback: WidgetCallback): void;
 }
 
-declare abstract class Client {
+export interface Client {
   readonly emitter: string;
   readonly userAgent: string;
   readonly language: string;

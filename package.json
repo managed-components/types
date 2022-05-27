@@ -4,10 +4,19 @@
   "description": "Types for Managed Components",
   "types": "./index.d.ts",
   "files": [
-    "index.d.ts"
+    "index.d.ts",
+    "globals.d.ts"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./globals": {
+      "types": "./globals.d.ts"
+    }
   },
   "repository": {
     "type": "git",
