@@ -6,6 +6,5 @@
     "noEmit": true,
     "module": "ESNext",
     "esModuleInterop": true
-  },
-  "include": ["index.d.ts"]
+  }
 }
