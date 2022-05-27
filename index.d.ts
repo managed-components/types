@@ -1,8 +1,8 @@
-export interface ComponentSettings {
+interface ComponentSettings {
   [key: string]: any;
 }
 
-export interface ClientSetOptions {
+interface ClientSetOptions {
   readonly scope?: "page" | "session" | "infinite";
   readonly expiry?: Date | number | null;
 }
@@ -13,18 +13,18 @@ type EmbedCallback = (context: {
 
 type WidgetCallback = () => Promise<string>;
 
-export interface MCEvent extends Event {
+interface MCEvent extends Event {
   readonly name?: string;
   readonly payload: any;
   client: Client;
   readonly type: string;
 }
 
-export interface MCEventListener {
+interface MCEventListener {
   (event: MCEvent): void;
 }
 
-export interface Manager {
+interface Manager {
   readonly name: string;
 
   addEventListener(type: string, callback: MCEventListener): void;
@@ -40,7 +40,7 @@ export interface Manager {
   registerWidget(callback: WidgetCallback): void;
 }
 
-export interface Client {
+interface Client {
   readonly emitter: string;
   readonly userAgent: string;
   readonly language: string;
@@ -57,3 +57,14 @@ export interface Client {
   get(key: string): string;
   attachEvent(event: string): void;
 }
+
+export {
+  ComponentSettings,
+  ClientSetOptions,
+  EmbedCallback,
+  WidgetCallback,
+  MCEvent,
+  MCEventListener,
+  Manager,
+  Client,
+};
