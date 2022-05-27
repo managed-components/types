@@ -28,8 +28,8 @@
   "keywords": [
     "webcm"
   ],
-  "author": "",
-  "license": "BSD-3-Clause",
+  "author": "Cloudflare Managed Components Team <managedcomponents@cloudflare.com> (https://blog.cloudflare.com/zaraz-open-source-managed-components-and-webcm/)",
+  "license": "",
   "bugs": {
     "url": "https://github.com/managed-components/types/issues"
   },
