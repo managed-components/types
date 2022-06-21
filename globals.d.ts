@@ -7,7 +7,7 @@ import {
   WidgetCallback as CWidgetCallback,
   MCEvent as CMCEvent,
   MCEventListener as CMCEventListener
-} from "./index"
+} from './index'
 
 declare global {
   interface Client extends CClient {}

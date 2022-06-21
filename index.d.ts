@@ -3,7 +3,7 @@ interface ComponentSettings {
 }
 
 interface ClientSetOptions {
-  readonly scope?: "page" | "session" | "infinite"
+  readonly scope?: 'page' | 'session' | 'infinite'
   readonly expiry?: Date | number | null
 }
 
@@ -24,20 +24,20 @@ interface MCEventListener {
   (event: MCEvent): void
 }
 
-type ManagerEventType = "clientcreated" | "pageview" | "ecommerce"
+type ManagerEventType = 'clientcreated' | 'pageview' | 'ecommerce'
 
 type ClientEventType =
-  | "event"
-  | "mouseup"
-  | "mousedown"
-  | "mousemove"
-  | "visiblityChange"
-  | "historyChange"
-  | "pageHide"
-  | "pageShow"
-  | "resize"
-  | "scroll"
-  | "resourcePerformanceEntry"
+  | 'event'
+  | 'mouseup'
+  | 'mousedown'
+  | 'mousemove'
+  | 'visiblityChange'
+  | 'historyChange'
+  | 'pageHide'
+  | 'pageShow'
+  | 'resize'
+  | 'scroll'
+  | 'resourcePerformanceEntry'
 
 interface Manager {
   readonly name: string
