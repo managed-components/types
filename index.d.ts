@@ -94,5 +94,5 @@ export {
   MCEvent,
   MCEventListener,
   Manager,
-  Client
+  Client,
 }
