@@ -24,11 +24,32 @@ interface MCEventListener {
   (event: MCEvent): void;
 }
 
+type ManagerEventType = "clientcreated" | "pageview" | "ecommerce";
+
+type ClientEventType =
+  | "event"
+  | "mouseup"
+  | "mousedown"
+  | "mousemove"
+  | "visiblityChange"
+  | "historyChange"
+  | "pageHide"
+  | "pageShow"
+  | "resize"
+  | "scroll"
+  | "resourcePerformanceEntry";
+
 interface Manager {
   readonly name: string;
 
-  addEventListener(type: string, callback: MCEventListener): void;
-  createEventListener(type: string, callback: MCEventListener): void;
+  addEventListener(
+    type: ManagerEventType,
+    callback: MCEventListener
+  ): boolean | undefined;
+  createEventListener(
+    type: ClientEventType,
+    callback: MCEventListener
+  ): boolean | undefined;
   get(key: string): string | undefined;
   set(key: string, value: any): boolean | undefined;
   route(
@@ -62,7 +83,7 @@ interface Client {
     opts?: ClientSetOptions
   ): boolean | undefined;
   get(key: string): string | undefined;
-  attachEvent(event: string): boolean | undefined;
+  attachEvent(event: ClientEventType): boolean | undefined;
 }
 
 export {
