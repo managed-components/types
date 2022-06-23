@@ -1,6 +1,6 @@
 {
   "name": "@managed-components/types",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Types for Managed Components",
   "types": "./index.d.ts",
   "files": [
