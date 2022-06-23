@@ -7,17 +7,17 @@ import {
   WidgetCallback as CWidgetCallback,
   MCEvent as CMCEvent,
   MCEventListener as CMCEventListener,
-} from "./index";
+} from './index'
 
 declare global {
   interface Client extends CClient {}
   interface Manager extends CManager {}
-  type EmbedCallback = CEmbedCallback;
-  type WidgetCallback = CWidgetCallback;
+  type EmbedCallback = CEmbedCallback
+  type WidgetCallback = CWidgetCallback
   interface ComponentSettings extends CComponentSettings {}
   interface ClientSetOptions extends CClientSetOptions {}
   interface MCEvent extends CMCEvent {}
   interface MCEventListener extends CMCEventListener {}
 }
 
-export {};
+export {}

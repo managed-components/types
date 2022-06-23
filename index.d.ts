@@ -42,17 +42,26 @@ type ClientEventType =
 interface Manager {
   readonly name: string
 
-  addEventListener(type: ManagerEventType, callback: MCEventListener): void
-  createEventListener(type: ClientEventType, callback: MCEventListener): void
-  get(key: string): string
-  set(key: string, value: any): void
-  route(path: string, callback: (request: Request | any) => Response): string
-  proxy(path: string, target: string): string
-  serve(path: string, target: string): string
+  addEventListener(
+    type: ManagerEventType,
+    callback: MCEventListener
+  ): boolean | undefined
+  createEventListener(
+    type: ClientEventType,
+    callback: MCEventListener
+  ): boolean | undefined
+  get(key: string): string | undefined
+  set(key: string, value: any): boolean | undefined
+  route(
+    path: string,
+    callback: (request: Request | any) => Response
+  ): string | undefined
+  proxy(path: string, target: string): string | undefined
+  serve(path: string, target: string): string | undefined
   useCache(key: string, callback: Function, expiry?: number): any
-  invalidateCache(key: string): void
-  registerEmbed(name: string, callback: EmbedCallback): void
-  registerWidget(callback: WidgetCallback): void
+  invalidateCache(key: string): boolean | undefined
+  registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
+  registerWidget(callback: WidgetCallback): boolean | undefined
 }
 
 interface Client {
@@ -65,12 +74,16 @@ interface Client {
   readonly timestamp?: number
   readonly url: URL
 
-  fetch(resource: string, settings?: RequestInit): void
-  execute(code: string): void
-  return(value: unknown): void
-  set(key: string, value?: string | null, opts?: ClientSetOptions): void
-  get(key: string): string
-  attachEvent(event: ClientEventType): void
+  fetch(resource: string, settings?: RequestInit): boolean | undefined
+  execute(code: string): boolean | undefined
+  return(value: unknown): boolean | undefined
+  set(
+    key: string,
+    value?: string | null,
+    opts?: ClientSetOptions
+  ): boolean | undefined
+  get(key: string): string | undefined
+  attachEvent(event: ClientEventType): boolean | undefined
 }
 
 export {
