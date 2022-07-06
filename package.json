@@ -22,9 +22,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/managed-components/types.git"
   },
-  "engines": {
-    "node": ">=17.0.0"
-  },
   "keywords": [
     "webcm"
   ],
