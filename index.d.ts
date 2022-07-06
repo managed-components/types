@@ -75,14 +75,15 @@ interface Client {
 
   fetch(resource: string, settings?: RequestInit): boolean | undefined
   execute(code: string): boolean | undefined
-  return(value: unknown): boolean | undefined
+  return(value: unknown): void
   set(
     key: string,
     value?: string | null,
     opts?: ClientSetOptions
   ): boolean | undefined
   get(key: string): string | undefined
-  attachEvent(event: ClientEventType): boolean | undefined
+  attachEvent(event: ClientEventType): void
+  detachEvent(event: ClientEventType): void
 }
 
 export {

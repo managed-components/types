@@ -1,5 +1,6 @@
-# Typsecript Definitions for Managed Components
+# Typescript Definitions for Managed Components
 
+Find out more about Managed Components [here.](https://managedcomponents.dev)
 ## Install
 
 ```bash

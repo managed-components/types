@@ -69,6 +69,7 @@ export default async function (manager: Manager, settings: ComponentSettings) {
     }
 
     client.attachEvent('mousedown')
+    client.detachEvent('mousedown')
     client.attachEvent('historyChange')
     client.attachEvent('scroll')
     client.attachEvent('resize')
