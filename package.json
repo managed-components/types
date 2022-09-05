@@ -8,7 +8,8 @@
     "globals.d.ts"
   ],
   "scripts": {
-    "test": "tsc --noEmit"
+    "test": "tsc --noEmit",
+    "release": "npm version patch && npm publish"
   },
   "exports": {
     ".": {
