@@ -24,7 +24,12 @@ interface MCEventListener {
   (event: MCEvent): void
 }
 
-type ManagerEventType = 'clientcreated' | 'pageview' | 'ecommerce' | 'event'
+type ManagerEventType =
+  | 'clientcreated'
+  | 'pageview'
+  | 'ecommerce'
+  | 'event'
+  | string
 
 type ClientEventType =
   | 'mouseup'
