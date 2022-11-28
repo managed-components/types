@@ -13,7 +13,7 @@ type EmbedCallback = (context: {
 
 type WidgetCallback = () => Promise<string>
 
-interface MCEvent extends Event {
+interface MCEvent {
   readonly name?: string
   readonly payload: any
   client: Client
