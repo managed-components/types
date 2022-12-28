@@ -77,6 +77,7 @@ interface Client {
   readonly title?: string
   readonly timestamp?: number
   readonly url: URL
+  readonly timezoneOffset?: number
 
   fetch(resource: string, settings?: RequestInit): boolean | undefined
   execute(code: string): boolean | undefined
