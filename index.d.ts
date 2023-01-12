@@ -35,7 +35,7 @@ type ClientEventType =
   | 'mouseup'
   | 'mousedown'
   | 'mousemove'
-  | 'visiblityChange'
+  | 'visibilityChange'
   | 'historyChange'
   | 'pageHide'
   | 'pageShow'
