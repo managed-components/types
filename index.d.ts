@@ -13,7 +13,7 @@ type EmbedCallback = (context: {
 
 type WidgetCallback = () => Promise<string>
 
-interface MCEvent extends Event {
+interface MCEvent {
   readonly name?: string
   readonly payload: any
   client: Client
@@ -77,6 +77,11 @@ interface Client {
   readonly title?: string
   readonly timestamp?: number
   readonly url: URL
+  readonly timezoneOffset?: number
+  readonly screenWidth?: number
+  readonly screenHeight?: number
+  readonly viewportWidth?: number
+  readonly viewportHeight?: number
 
   fetch(resource: string, settings?: RequestInit): boolean | undefined
   execute(code: string): boolean | undefined
