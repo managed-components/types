@@ -96,10 +96,7 @@ interface Client {
   detachEvent(event: ClientEventType): void
 }
 
-type ManagedComponent = (
-  _manager: Manager,
-  _settings: ComponentSettings
-) => void
+type ManagedComponent = (manager: Manager, settings: ComponentSettings) => void
 
 type Permission =
   | 'access_client_kv'
