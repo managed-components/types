@@ -96,6 +96,19 @@ interface Client {
   detachEvent(event: ClientEventType): void
 }
 
+type ManagedComponent = (
+  _manager: Manager,
+  _settings: ComponentSettings
+) => void
+
+type Permission =
+  | 'access_client_kv'
+  | 'access_extended_client_kv'
+  | 'execute_unsafe_scripts'
+  | 'client_network_requests'
+  | 'serve_static_files'
+  | 'provide_server_functionality'
+
 export {
   ComponentSettings,
   ClientSetOptions,
@@ -105,4 +118,6 @@ export {
   MCEventListener,
   Manager,
   Client,
+  ManagedComponent,
+  Permission,
 }
