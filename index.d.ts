@@ -21,7 +21,7 @@ interface MCEvent {
 }
 
 interface MCEventListener {
-  (event: MCEvent): void
+  (event: MCEvent): void | Promise<void>
 }
 
 type ManagerEventType =
@@ -97,7 +97,10 @@ interface Client {
   detachEvent(event: ClientEventType): void
 }
 
-type ManagedComponent = (manager: Manager, settings: ComponentSettings) => void
+type ManagedComponent = (
+  manager: Manager,
+  settings: ComponentSettings
+) => void | Promise<void>
 
 type Permission =
   | 'access_client_kv'
