@@ -21,7 +21,7 @@ interface MCEvent {
 }
 
 interface MCEventListener {
-  (event: MCEvent): void
+  (event: MCEvent): void | Promise<void>
 }
 
 type ManagerEventType =
@@ -66,6 +66,7 @@ interface Manager {
   invalidateCache(key: string): boolean | undefined
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
+  fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response>
 }
 
 interface Client {
@@ -96,6 +97,19 @@ interface Client {
   detachEvent(event: ClientEventType): void
 }
 
+type ManagedComponent = (
+  manager: Manager,
+  settings: ComponentSettings
+) => void | Promise<void>
+
+type Permission =
+  | 'access_client_kv'
+  | 'access_extended_client_kv'
+  | 'execute_unsafe_scripts'
+  | 'client_network_requests'
+  | 'serve_static_files'
+  | 'provide_server_functionality'
+
 export {
   ComponentSettings,
   ClientSetOptions,
@@ -105,4 +119,6 @@ export {
   MCEventListener,
   Manager,
   Client,
+  ManagedComponent,
+  Permission,
 }
