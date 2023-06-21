@@ -63,7 +63,7 @@ interface Manager {
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
   useCache(key: string, callback: Function, expiry?: number): any
-  invalidateCache(key: string): boolean | undefined
+  invalidateCache(key: string): any
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
   fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response>
