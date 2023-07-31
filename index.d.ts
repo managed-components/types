@@ -54,7 +54,7 @@ interface Manager {
     type: ClientEventType,
     callback: MCEventListener
   ): boolean | undefined
-  get(key: string): string | undefined
+  get(key: string): Promise<string | undefined>
   set(key: string, value: any): boolean | undefined
   route(
     path: string,
@@ -62,7 +62,11 @@ interface Manager {
   ): string | undefined
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
-  useCache(key: string, callback: Function, expiry?: number): any
+  useCache(
+    key: string,
+    callback: Function,
+    expiry?: number
+  ): Promise<string | undefined>
   invalidateCache(key: string): any
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
