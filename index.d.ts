@@ -62,11 +62,7 @@ interface Manager {
   ): string | undefined
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
-  useCache(
-    key: string,
-    callback: Function,
-    expiry?: number
-  ): Promise<string | undefined>
+  useCache(key: string, callback: Function, expiry?: number): Promise<any>
   invalidateCache(key: string): any
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
