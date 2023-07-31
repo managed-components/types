@@ -55,7 +55,7 @@ interface Manager {
     callback: MCEventListener
   ): boolean | undefined
   get(key: string): Promise<string | undefined>
-  set(key: string, value: any): boolean | undefined
+  set(key: string, value: any): Promise<boolean>
   route(
     path: string,
     callback: (request: Request | any) => Response
