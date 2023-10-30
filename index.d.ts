@@ -58,7 +58,7 @@ interface Manager {
   set(key: string, value: any): Promise<boolean>
   route(
     path: string,
-    callback: (request: Request | any) => Response
+    callback: (request: Request | any) => Promise<Response> | Response
   ): string | undefined
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
