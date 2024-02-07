@@ -66,7 +66,7 @@ interface Manager {
   invalidateCache(key: string): Promise<void>
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
-  fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response>
+  fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> | undefined
 }
 
 interface Client {
