@@ -109,6 +109,7 @@ type Permission =
   | 'client_network_requests'
   | 'serve_static_files'
   | 'provide_server_functionality'
+  | "server_network_requests"
 
 export {
   ComponentSettings,
