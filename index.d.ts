@@ -9,7 +9,7 @@ interface ClientSetOptions {
 
 type EmbedCallback = (context: {
   parameters: { [k: string]: unknown }
-  userAgent: string
+  client: Client
 }) => Promise<string>
 
 type WidgetCallback = () => Promise<string>
