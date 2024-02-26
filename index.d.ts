@@ -67,7 +67,10 @@ interface Manager {
   invalidateCache(key: string): Promise<void>
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
-  fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> | undefined
+  fetch(
+    input: RequestInfo | URL,
+    init?: RequestInit
+  ): Promise<Response> | undefined
   ext?: Record<string, any>
 }
 
@@ -111,7 +114,7 @@ type Permission =
   | 'client_network_requests'
   | 'serve_static_files'
   | 'provide_server_functionality'
-  | "server_network_requests"
+  | 'server_network_requests'
 
 export {
   ComponentSettings,
