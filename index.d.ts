@@ -68,6 +68,7 @@ interface Manager {
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
   fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> | undefined
+  ext?: Record<string, any>
 }
 
 interface Client {
