@@ -94,7 +94,7 @@ interface Client {
     value?: string | null,
     opts?: ClientSetOptions
   ): boolean | undefined
-  get(key: string): string | undefined
+  get(key: string, tool?: string): string | undefined
   attachEvent(event: ClientEventType): void
   detachEvent(event: ClientEventType): void
 }
