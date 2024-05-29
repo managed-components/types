@@ -55,10 +55,10 @@ interface Manager {
     callback: MCEventListener
   ): boolean | undefined
   get(key: string): Promise<unknown>
-  set(key: string, value: unknown): Promise<boolean>
+  set(key: string, value: any): Promise<boolean>
   route(
     path: string,
-    callback: (request: Request | unknown) => Promise<Response> | Response
+    callback: (request: Request | any) => Promise<Response> | Response
   ): string | undefined
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
@@ -89,7 +89,7 @@ interface Client {
 
   fetch(resource: string, settings?: RequestInit): boolean | undefined
   execute(code: string): boolean | undefined
-  return(value: unknown): void
+  return(value: any): void
   set(
     key: string,
     value?: string | null,
