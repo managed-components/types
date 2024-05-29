@@ -1,5 +1,5 @@
 interface ComponentSettings {
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface ClientSetOptions {
@@ -15,7 +15,7 @@ type WidgetCallback = () => Promise<string>
 
 interface MCEvent {
   readonly name?: string
-  readonly payload: any
+  readonly payload: unknown
   client: Client
   readonly type: string
 }
@@ -54,19 +54,22 @@ interface Manager {
     type: ClientEventType,
     callback: MCEventListener
   ): boolean | undefined
-  get(key: string): Promise<any>
-  set(key: string, value: any): Promise<boolean>
+  get(key: string): Promise<unknown>
+  set(key: string, value: unknown): Promise<boolean>
   route(
     path: string,
-    callback: (request: Request | any) => Promise<Response> | Response
+    callback: (request: Request | unknown) => Promise<Response> | Response
   ): string | undefined
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
-  useCache(key: string, callback: Function, expiry?: number): Promise<any>
+  useCache(key: string, callback: Function, expiry?: number): Promise<unknown>
   invalidateCache(key: string): Promise<void>
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined
-  fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> | undefined
+  fetch(
+    input: RequestInfo | URL,
+    init?: RequestInit
+  ): Promise<Response> | undefined
 }
 
 interface Client {
@@ -109,7 +112,7 @@ type Permission =
   | 'client_network_requests'
   | 'serve_static_files'
   | 'provide_server_functionality'
-  | "server_network_requests"
+  | 'server_network_requests'
 
 export {
   ComponentSettings,
