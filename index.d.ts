@@ -15,7 +15,7 @@ type WidgetCallback = () => Promise<string>
 
 interface MCEvent {
   readonly name?: string
-  readonly payload: unknown
+  readonly payload: Record<string, unknown | undefined>
   client: Client
   readonly type: string
 }
@@ -54,15 +54,15 @@ interface Manager {
     type: ClientEventType,
     callback: MCEventListener
   ): boolean | undefined
-  get(key: string): Promise<unknown>
-  set(key: string, value: any): Promise<boolean>
+  get(key: string): Promise<string | null>
+  set(key: string, value: string): Promise<boolean>
   route(
     path: string,
     callback: (request: Request | any) => Promise<Response> | Response
   ): string | undefined
   proxy(path: string, target: string): string | undefined
   serve(path: string, target: string): string | undefined
-  useCache(key: string, callback: Function, expiry?: number): Promise<unknown>
+  useCache(key: string, callback: Function, expiry?: number): Promise<string>
   invalidateCache(key: string): Promise<void>
   registerEmbed(name: string, callback: EmbedCallback): boolean | undefined
   registerWidget(callback: WidgetCallback): boolean | undefined

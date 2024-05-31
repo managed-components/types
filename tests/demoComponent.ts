@@ -33,6 +33,9 @@ export default async function (manager: Manager, settings: ComponentSettings) {
     // Save mouse coordinates as a cookie
     const { client, payload } = event
     console.info('🐁 ⬇️ Mousedown payload:', payload)
+    if (!Array.isArray(payload.mousedown)) {
+      throw new Error('expected mousedown to be an array')
+    }
     const [firstClick] = payload.mousedown
     client.set('lastClickX', firstClick.clientX)
     client.set('lastClickY', firstClick.clientY)
@@ -85,7 +88,9 @@ export default async function (manager: Manager, settings: ComponentSettings) {
     payload.user_id = client.get('user_id')
 
     if (Object.keys(payload || {}).length) {
-      const params = new URLSearchParams(payload).toString()
+      const params = new URLSearchParams(
+        payload as Record<string, string>
+      ).toString()
       fetch(`http://www.example.com/?${params}`)
     }
   })
@@ -129,6 +134,9 @@ export default async function (manager: Manager, settings: ComponentSettings) {
           console.error('error fetching weather for embed:', error)
         }
       })
+      if (typeof embed !== 'string') {
+        throw new Error('Unexpected embed return type: ' + typeof embed)
+      }
       return embed
     }
   )
