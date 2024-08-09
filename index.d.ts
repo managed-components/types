@@ -11,7 +11,7 @@ type EmbedCallback = (context: {
   parameters: { [k: string]: unknown }
 }) => Promise<string>
 
-type WidgetCallback = () => Promise<string>
+type WidgetCallback = (context: { client: Client }) => Promise<string>
 
 interface MCEvent {
   readonly name?: string
